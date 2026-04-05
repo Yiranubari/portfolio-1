@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contact.css';
+import styles from "./Contact.module.css";
 
 const LINKS = [
   {
@@ -21,37 +21,37 @@ const LINKS = [
 
 export default function Contact() {
   return (
-    <div className="section contact-center">
-      <p className="sec-label">Get in touch</p>
-      <h2 className="sec-title">Let's work together.</h2>
-      <p className="sec-sub">
+    <div className={`section ${styles['contact-center']}`}>
+      <p className='sec-label'>Get in touch</p>
+      <h2 className='sec-title'>Let's work together.</h2>
+      <p className='sec-sub'>
         Open to full-time roles, contracts, and interesting collabs.
         <br />
         If you're building something, reach out.
       </p>
-      <div className="contact-links">
+      <div className={styles['contact-links']}>
         {LINKS.map((l) => (
           <a
             key={l.label}
             href={l.href}
-            className="contact-row"
+            className={styles['contact-row']}
             target={l.href.startsWith('http') ? '_blank' : undefined}
             rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
             <div>
-              <div className="cr-label">{l.label}</div>
-              <div className="cr-value">{l.value}</div>
+              <div className={styles['cr-label']}>{l.label}</div>
+              <div className={styles['cr-value']}>{l.value}</div>
             </div>
-            <div className="cr-arrow">↗</div>
+            <div className={styles['cr-arrow']}>↗</div>
           </a>
         ))}
       </div>
-      <button
-        className="cta-btn"
-        onClick={() => window.open('mailto:yiranubari4@gmail.com')}
+      <a
+        className='cta-btn'
+        href="mailto:yiranubari4@gmail.com"
       >
         Send a Message
-      </button>
+      </a>
     </div>
   );
 }

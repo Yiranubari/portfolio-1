@@ -1,21 +1,22 @@
 import React from "react";
-import "./Home.css";
+import Link from "next/link";
+import styles from "./Home.module.css";
 
-export default function Home({ setActive }) {
+export default function Home() {
   return (
-    <div className="home-section">
-      <div className="avatar-wrap" aria-hidden="true">
+    <div className={styles['home-section']}>
+      <div className={styles['avatar-wrap']} aria-hidden="true">
         👨🏾‍💻
       </div>
-      <p className="greeting">Hi, I'm Yiranubari 🤘</p>
-      <h1 className="hero-heading">
+      <p className={styles['greeting']}>Hi, I'm Yiranubari 🤘</p>
+      <h1 className={styles['hero-heading']}>
         Building backends,
         <br />
         frontends, and
         <br />
         things that ship.
       </h1>
-      <p className="hero-sub">
+      <p className={styles['hero-sub']}>
         a <strong>Full-Stack Developer</strong> and{" "}
         <strong>Software Engineer</strong>
         <br />
@@ -23,9 +24,9 @@ export default function Home({ setActive }) {
         <br />
         and production-grade backend systems.
       </p>
-      <button className="cta-btn" onClick={() => setActive("Contact")}>
+      <Link href="/contact" className='cta-btn'>
         Connect With Me
-      </button>
+      </Link>
     </div>
   );
 }

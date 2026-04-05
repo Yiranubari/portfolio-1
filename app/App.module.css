@@ -1,0 +1,33 @@
+.page {
+  background: #111114;
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ── SECTION BASE ── */
+
+/* ── SECTION HEADER ── */
+
+
+
+/* ── BUTTONS ── */
+
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 700px) {
+}

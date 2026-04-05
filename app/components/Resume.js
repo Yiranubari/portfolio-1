@@ -1,5 +1,5 @@
 import React from 'react';
-import './Resume.css';
+import styles from "./Resume.module.css";
 
 const EXPERIENCE = [
   {
@@ -40,30 +40,30 @@ const EDUCATION = [
 
 function ExpItem({ year, title, company, desc }) {
   return (
-    <div className="exp-item">
-      <div className="exp-year">{year}</div>
-      <div className="exp-title">{title}</div>
-      {company && <div className="exp-company">{company}</div>}
-      {desc && <div className="exp-desc">{desc}</div>}
+    <div className={styles['exp-item']}>
+      <div className={styles['exp-year']}>{year}</div>
+      <div className={styles['exp-title']}>{title}</div>
+      {company && <div className={styles['exp-company']}>{company}</div>}
+      {desc && <div className={styles['exp-desc']}>{desc}</div>}
     </div>
   );
 }
 
 export default function Resume() {
   return (
-    <div className="section">
-      <p className="sec-label">Background</p>
-      <h2 className="sec-title">Resume</h2>
-      <p className="sec-sub">My experience and education at a glance.</p>
-      <div className="resume-grid">
-        <div className="exp-block">
-          <div className="exp-block-label">Experience</div>
+    <div className='section'>
+      <p className='sec-label'>Background</p>
+      <h2 className='sec-title'>Resume</h2>
+      <p className='sec-sub'>My experience and education at a glance.</p>
+      <div className={styles['resume-grid']}>
+        <div className={styles['exp-block']}>
+          <div className={styles['exp-block-label']}>Experience</div>
           {EXPERIENCE.map((e) => (
             <ExpItem key={e.title} {...e} />
           ))}
         </div>
-        <div className="exp-block">
-          <div className="exp-block-label">Education & Certifications</div>
+        <div className={styles['exp-block']}>
+          <div className={styles['exp-block-label']}>Education & Certifications</div>
           {EDUCATION.map((e) => (
             <ExpItem key={e.title} {...e} />
           ))}

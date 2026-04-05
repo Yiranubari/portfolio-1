@@ -1,5 +1,5 @@
 import React from 'react';
-import './Skills.css';
+import styles from "./Skills.module.css";
 
 const SKILLS = [
   {
@@ -36,14 +36,14 @@ const SKILLS = [
 
 export default function Skills() {
   return (
-    <div className="section">
-      <p className="sec-label">Capabilities</p>
-      <h2 className="sec-title">Skills</h2>
-      <p className="sec-sub">What I bring to the table — across the full stack.</p>
-      <div className="skills-grid">
+    <div className='section'>
+      <p className='sec-label'>Capabilities</p>
+      <h2 className='sec-title'>Skills</h2>
+      <p className='sec-sub'>What I bring to the table — across the full stack.</p>
+      <div className={styles['skills-grid']}>
         {SKILLS.map((s) => (
-          <div className="skill-card" key={s.title}>
-            <div className="skill-icon">{s.icon}</div>
+          <div className={styles['skill-card']} key={s.title}>
+            <div className={styles['skill-icon']}>{s.icon}</div>
             <h3>{s.title}</h3>
             <p>{s.desc}</p>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Works.css';
+import styles from "./Works.module.css";
 
 const WORKS = [
   {
@@ -27,22 +27,22 @@ const WORKS = [
 
 export default function Works() {
   return (
-    <div className="section">
-      <p className="sec-label">Portfolio</p>
-      <h2 className="sec-title">My Works</h2>
-      <p className="sec-sub">
+    <div className='section'>
+      <p className='sec-label'>Portfolio</p>
+      <h2 className='sec-title'>My Works</h2>
+      <p className='sec-sub'>
         A selection of projects I've built and shipped — live, real, and in production.
       </p>
-      <div className="works-grid">
+      <div className={styles['works-grid']}>
         {WORKS.map((w) => (
-          <div className="work-card" key={w.title}>
-            <div className="work-card-top">
-              <div className="work-icon">{w.icon}</div>
+          <div className={styles['work-card']} key={w.title}>
+            <div className={styles['work-card-top']}>
+              <div className={styles['work-icon']}>{w.icon}</div>
               <a
                 href={w.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="work-link"
+                className={styles['work-link']}
                 aria-label={`Visit ${w.title}`}
               >
                 ↗
@@ -50,9 +50,9 @@ export default function Works() {
             </div>
             <h3>{w.title}</h3>
             <p>{w.desc}</p>
-            <div className="work-tags">
+            <div className={styles['work-tags']}>
               {w.tags.map((t) => (
-                <span className="wtag" key={t}>{t}</span>
+                <span className={styles['wtag']} key={t}>{t}</span>
               ))}
             </div>
           </div>
