@@ -23,11 +23,11 @@ const SKILLS = [
     title: "Tools & Platforms",
     desc: "Docker, Git, Linux, Nginx, and PM2, deploying to AWS EC2 and Vercel.",
   },
-  {
-    icon: "users",
-    title: "Process",
-    desc: "Agile sprints, team collaboration, and fast iteration. Comfortable in a real engineering team.",
-  },
+  // {
+  //   icon: "users",
+  //   title: "Process",
+  //   desc: "Agile sprints, team collaboration, and fast iteration. Comfortable in a real engineering team.",
+  // },
 ];
 
 export default function Skills() {
