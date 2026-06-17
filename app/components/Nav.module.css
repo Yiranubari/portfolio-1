@@ -18,33 +18,11 @@
   gap: 0.7rem;
 }
 
-.monogram {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.82);
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.nav-left:hover .monogram {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.07);
-}
-
 .nav-name {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.82);
   transition: color 0.2s ease;
 }
 
@@ -105,7 +83,7 @@
   }
 
   .nav-name {
-    display: none;
+    font-size: 0.9rem;
   }
 
   .nav-links {

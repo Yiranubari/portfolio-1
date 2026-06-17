@@ -1,9 +1,15 @@
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Nav from './components/Nav';
 import './global.css';
 import styles from './App.module.css';
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800'] });
+// Self-hosted so the build never depends on reaching Google Fonts.
+const jakarta = localFont({
+  src: './fonts/PlusJakartaSans-latin.woff2',
+  weight: '200 800',
+  display: 'swap',
+  variable: '--font-jakarta',
+});
 
 export const metadata = {
   title: 'Yiranubari Promise',
@@ -14,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jakarta.className}>
+      <body className={jakarta.variable}>
         <div className={styles.page}>
           <Nav />
           <main>

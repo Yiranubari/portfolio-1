@@ -19,7 +19,6 @@ export default function Nav() {
   return (
     <nav className={styles['nav']}>
       <Link href="/" className={styles['nav-left']} aria-label="Yiranubari Maamaa, home">
-        <div className={styles['monogram']} aria-hidden="true">YM</div>
         <span className={styles['nav-name']}>Yiranubari Maamaa</span>
       </Link>
       <ul className={styles['nav-links']}>

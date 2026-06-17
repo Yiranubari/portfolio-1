@@ -36,7 +36,7 @@ export default function Home() {
         a <strong>Full-Stack Developer</strong> and{" "}
         <strong>Software Engineer</strong>
         <br />
-        I specialize in Node.js, TypeScript, React, PHP
+        I specialize in Node.js, TypeScript, PHP, Python, React
         <br />
         and production-grade backend systems.
       </p>
