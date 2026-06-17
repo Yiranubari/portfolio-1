@@ -15,7 +15,7 @@ const SKILLS = [
   },
   {
     icon: "database",
-    title: "Data & ORM",
+    title: "Databases & ORM",
     desc: "PostgreSQL, MySQL, SQLite, and Redis with Prisma, SQLAlchemy, and Alembic. Schema design and query optimization.",
   },
   {
