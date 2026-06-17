@@ -4,6 +4,33 @@
   align-items: center;
   text-align: center;
   padding: 5.5rem 2.5rem 7rem;
+  position: relative;
+}
+
+/* Soft spotlight that tracks the cursor inside the hero. Cool neutral tone to
+   match the ambient background; fades in only while the cursor is present. */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--glow, 0);
+  transition: opacity 0.5s var(--ease);
+  background: radial-gradient(
+    460px circle at var(--mx, 50%) var(--my, 40%),
+    rgba(150, 165, 210, 0.1),
+    transparent 60%
+  );
+}
+
+/* Keep all hero content above the spotlight layer. */
+.avatar-wrap,
+.greeting,
+.hero-heading,
+.hero-sub,
+.hero-actions {
+  position: relative;
+  z-index: 1;
 }
 
 .avatar-wrap {
@@ -31,6 +58,8 @@
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease);
 }
 
 .avatar-img {
