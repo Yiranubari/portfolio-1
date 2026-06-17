@@ -1,0 +1,5 @@
+# Next.js static export. These file-based settings override the Netlify UI
+# build settings, so the stale `build` publish directory is no longer used.
+[build]
+  command = "npm run build"
+  publish = "out"
