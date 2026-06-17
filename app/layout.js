@@ -3,7 +3,6 @@ import Nav from './components/Nav';
 import './global.css';
 import styles from './App.module.css';
 
-// Self-hosted so the build never depends on reaching Google Fonts.
 const jakarta = localFont({
   src: './fonts/PlusJakartaSans-latin.woff2',
   weight: '200 800',

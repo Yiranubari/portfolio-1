@@ -5,7 +5,6 @@
 }
 
 :root {
-  /* Surfaces: very dark base for black glassmorphism */
   --bg: #050506;
   --glass: rgba(255, 255, 255, 0.035);
   --glass-strong: rgba(255, 255, 255, 0.055);
@@ -13,12 +12,10 @@
   --glass-border-hover: rgba(255, 255, 255, 0.16);
   --glass-blur: saturate(140%) blur(16px);
 
-  /* Text */
   --text: #f2f2f3;
   --text-2: rgba(255, 255, 255, 0.5);
   --text-3: rgba(255, 255, 255, 0.32);
 
-  /* Motion */
   --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
 }
 
@@ -35,8 +32,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ambient depth: quiet, off-center light so the glass has something to pick up.
-   Cool neutral tones (no rainbow gradients). */
 body::before {
   content: '';
   position: fixed;
@@ -62,7 +57,6 @@ a {
   text-decoration: none;
 }
 
-/* ── BUTTONS ── */
 .cta-btn {
   background: #fafafa;
   color: #0a0a0c;
@@ -87,7 +81,6 @@ a {
   transform: translateY(0);
 }
 
-/* Secondary / ghost button (glass) */
 .ghost-btn {
   display: inline-flex;
   align-items: center;
@@ -113,7 +106,6 @@ a {
   background: var(--glass-strong);
 }
 
-/* ── FOOTER ── */
 .footer {
   text-align: center;
   padding: 2.5rem;
@@ -124,12 +116,10 @@ a {
   letter-spacing: 0.02em;
 }
 
-/* ── SECTION BASE ── */
 .section {
   padding: 5rem 2.5rem;
 }
 
-/* ── SECTION HEADER ── */
 .sec-label {
   font-size: 0.7rem;
   font-weight: 700;
@@ -156,7 +146,6 @@ a {
   font-weight: 400;
 }
 
-/* ── REVEAL ANIMATION ── soft entrance, used across pages */
 @keyframes reveal {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -167,14 +156,12 @@ a {
   animation: reveal 0.7s var(--ease) forwards;
 }
 
-/* Stagger helpers */
 .d1 { animation-delay: 0.06s; }
 .d2 { animation-delay: 0.14s; }
 .d3 { animation-delay: 0.22s; }
 .d4 { animation-delay: 0.30s; }
 .d5 { animation-delay: 0.38s; }
 
-/* ── MOBILE ── */
 @media (max-width: 700px) {
   .section {
     padding: 3.5rem 1.25rem;
@@ -184,7 +171,6 @@ a {
   }
 }
 
-/* Respect reduced motion: disable entrance + transform-based motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

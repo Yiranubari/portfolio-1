@@ -7,8 +7,6 @@
   position: relative;
 }
 
-/* Soft spotlight that tracks the cursor inside the hero. Cool neutral tone to
-   match the ambient background; fades in only while the cursor is present. */
 .hero-glow {
   position: absolute;
   inset: 0;
@@ -23,7 +21,6 @@
   );
 }
 
-/* Keep all hero content above the spotlight layer. */
 .avatar-wrap,
 .greeting,
 .hero-heading,
@@ -71,7 +68,6 @@
   transition: transform 0.6s var(--ease);
 }
 
-/* Hover: subtle lift, brighter ring + glow, and a gentle zoom on the photo */
 .avatar-wrap:hover {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04));

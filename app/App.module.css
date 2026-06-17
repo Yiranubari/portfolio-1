@@ -7,17 +7,6 @@
   flex-direction: column;
 }
 
-
-/* ── SECTION BASE ── */
-
-/* ── SECTION HEADER ── */
-
-
-
-/* ── BUTTONS ── */
-
-
-/* ── FOOTER ── */
 .footer {
   text-align: center;
   padding: 2.5rem;
@@ -28,6 +17,5 @@
   letter-spacing: 0.02em;
 }
 
-/* ── MOBILE ── */
 @media (max-width: 700px) {
 }

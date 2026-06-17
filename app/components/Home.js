@@ -15,7 +15,6 @@ export default function Home() {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Respect reduced-motion: no cursor-driven motion at all.
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduce.matches) return;
 
@@ -29,12 +28,10 @@ export default function Home() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Spotlight follows the cursor inside the hero.
         section.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
         section.style.setProperty("--my", `${(y / rect.height) * 100}%`);
         section.style.setProperty("--glow", "1");
 
-        // Subtle parallax tilt on the avatar toward the cursor.
         const avatar = avatarRef.current;
         if (avatar) {
           const ar = avatar.getBoundingClientRect();
@@ -42,7 +39,7 @@ export default function Home() {
           const cy = ar.top + ar.height / 2;
           const dx = (e.clientX - cx) / (ar.width / 2);
           const dy = (e.clientY - cy) / (ar.height / 2);
-          const max = 7; // degrees
+          const max = 7;
           avatar.style.transform = `perspective(700px) rotateY(${clamp(dx, -1, 1) * max}deg) rotateX(${clamp(-dy, -1, 1) * max}deg)`;
         }
       });

@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./NowPlaying.module.css";
 import Icon from "./Icon";
 
-// Endpoint served by the Netlify Function (netlify/functions/now-playing.js).
 const ENDPOINT = "/.netlify/functions/now-playing";
 
 export default function NowPlaying() {
@@ -20,15 +19,12 @@ export default function NowPlaying() {
         const json = await res.json();
         if (alive) setData(json);
       } catch {
-        // Function unavailable (e.g. plain `next dev`) or network error:
-        // stay hidden rather than showing a broken widget.
         if (alive) setData(null);
       }
     };
 
     load();
-    // Refresh while the page is open so the track stays current.
-    const id = setInterval(load, 30000);
+    const id = setInterval(load, 10000);
     return () => {
       alive = false;
       clearInterval(id);
@@ -55,7 +51,6 @@ export default function NowPlaying() {
       title={`${data.title} — ${data.artist}`}
     >
       {data.albumArt ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <img className={styles.art} src={data.albumArt} alt="" />
       ) : (
         <span className={styles.artFallback}>

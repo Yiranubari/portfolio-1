@@ -1,30 +1,10 @@
-// Netlify Function: returns what Yiranubari is currently playing, via Last.fm.
-// Deployed alongside the static site; reachable at /.netlify/functions/now-playing
-//
-// Why Last.fm instead of Spotify: Spotify's Web API blocks the "currently
-// playing" endpoint for free (non-Premium) accounts. Last.fm scrobbles every
-// track you play and exposes a "now playing" flag through a free API, no
-// Premium and no OAuth required.
-//
-// One-time setup:
-//   1. Connect Spotify to Last.fm: https://www.last.fm/settings/applications
-//      (or last.fm/about/trackmymusic) so your plays get scrobbled.
-//   2. Get a free API key: https://www.last.fm/api/account/create
-//
-// Required environment variables (Netlify -> Site settings -> Environment vars):
-//   LASTFM_API_KEY
-//   LASTFM_USER      (your Last.fm username)
-
 const API_BASE = "https://ws.audioscrobbler.com/2.0/";
 
-// Last.fm's "no artwork" placeholder (a gray star). Treat it as no image so the
-// widget falls back to the clean icon instead of showing the placeholder.
 const PLACEHOLDER = "2a96cbd8b46e442fc41c2b86b821562f";
 
 function pickImage(images) {
   if (!Array.isArray(images)) return null;
   const usable = (url) => url && !url.includes(PLACEHOLDER);
-  // Prefer the largest available, fall back down the list.
   const order = ["extralarge", "large", "medium", "small"];
   for (const size of order) {
     const found = images.find((i) => i.size === size && usable(i["#text"]));
@@ -37,8 +17,7 @@ function pickImage(images) {
 exports.handler = async () => {
   const headers = {
     "Content-Type": "application/json",
-    // Short cache so we don't hammer Last.fm on every visit.
-    "Cache-Control": "public, max-age=30",
+    "Cache-Control": "public, max-age=5",
   };
 
   const notPlaying = {
@@ -73,7 +52,6 @@ exports.handler = async () => {
         : [];
     const track = Array.isArray(tracks) ? tracks[0] : tracks;
 
-    // Last.fm marks the live track with @attr.nowplaying === "true".
     const live =
       track && track["@attr"] && track["@attr"].nowplaying === "true";
     if (!track || !live) return notPlaying;

@@ -1,11 +1,5 @@
 import React from "react";
 
-/**
- * Single icon family (Lucide, MIT). One consistent visual language:
- * 24px grid, 2px stroke, round caps/joins, currentColor.
- * Decorative by default (aria-hidden); pass aria-hidden={false} + role/label
- * when an icon must be announced.
- */
 const PATHS = {
   server: (
     <>
