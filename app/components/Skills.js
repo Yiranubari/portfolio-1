@@ -6,7 +6,7 @@ const SKILLS = [
   {
     icon: "server",
     title: "Backend",
-    desc: "FastAPI, Node.js, Express, Slim 4, across Python, TypeScript, and PHP. Reliable, scalable server-side systems.",
+    desc: "FastAPI, Node.js, Express,Python, TypeScript, and PHP. Reliable, scalable, and secure APIs with REST",
   },
   {
     icon: "monitor",
