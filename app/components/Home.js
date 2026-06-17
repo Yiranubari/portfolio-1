@@ -8,14 +8,16 @@ export default function Home() {
   return (
     <div className={styles['home-section']}>
       <div className={`${styles['avatar-wrap']} reveal`}>
-        <Image
-          src="/1.jpg"
-          alt="Yiranubari Maamaa"
-          width={200}
-          height={200}
-          priority
-          className={styles['avatar-img']}
-        />
+        <div className={styles['avatar-inner']}>
+          <Image
+            src="/1.jpg"
+            alt="Yiranubari Maamaa"
+            width={260}
+            height={260}
+            priority
+            className={styles['avatar-img']}
+          />
+        </div>
       </div>
       <p className={`${styles['greeting']} reveal d1`}>
         Hi, I'm Yiranubari{" "}
