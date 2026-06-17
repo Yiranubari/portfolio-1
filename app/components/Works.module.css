@@ -5,54 +5,61 @@
 }
 
 .work-card {
-  background: #1a1a1f;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   border-radius: 18px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: transform 0.25s, background 0.25s;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .work-card:hover {
-  transform: translateY(-4px);
-  background: #1f1f27;
+  transform: translateY(-5px);
+  background: var(--glass-strong);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 22px 50px -26px rgba(0, 0, 0, 0.85);
 }
+
+/* staggered entrance */
+.work-card:nth-child(1) { animation-delay: 0.16s; }
+.work-card:nth-child(2) { animation-delay: 0.24s; }
+.work-card:nth-child(3) { animation-delay: 0.32s; }
+.work-card:nth-child(4) { animation-delay: 0.40s; }
+.work-card:nth-child(5) { animation-delay: 0.48s; }
 
 .work-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .work-icon {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: #26262e;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.92);
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
-.work-link {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+.work-card:hover .work-icon {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
 }
 
-.work-link:hover {
-  background: #fff;
-  color: #000;
+.work-year {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
 }
 
 .work-card h3 {
@@ -63,7 +70,7 @@
 
 .work-card p {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.42);
+  color: var(--text-2);
   line-height: 1.72;
   flex: 1;
 }
@@ -77,12 +84,36 @@
 .wtag {
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.28rem 0.7rem;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 100px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.work-links {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 0.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.work-clink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.work-clink:hover {
+  color: #fff;
+  gap: 0.45rem;
 }
 
 @media (max-width: 700px) {

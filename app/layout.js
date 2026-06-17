@@ -7,7 +7,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['300', '400', '
 
 export const metadata = {
   title: 'Yiranubari Promise',
-  description: 'Yiranubari Promise — Full-Stack Developer',
+  description: 'Yiranubari Maamaa, Full-Stack Developer',
 
 };
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <footer className={styles.footer}>
-            © 2025 Yiranubari Promise · Full-Stack Developer
+            © 2026 Yiranubari Maamaa · Full-Stack Developer
           </footer>
         </div>
       </body>
@@ -29,5 +29,5 @@ export default function RootLayout({ children }) {
   );
 }
 export const viewport = {
-  themeColor: '#111114'
+  themeColor: '#050506'
 };

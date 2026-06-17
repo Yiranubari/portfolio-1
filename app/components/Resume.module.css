@@ -1,13 +1,27 @@
+.resume-actions {
+  margin: -2rem 0 2.75rem;
+}
+
 .resume-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  align-items: start;
 }
 
 .exp-block {
-  background: #1a1a1f;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   border-radius: 18px;
   padding: 2rem;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.exp-block:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-strong);
 }
 
 .exp-block-label {

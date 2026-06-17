@@ -23,14 +23,14 @@ const LINKS = [
 export default function Contact() {
   return (
     <div className={`section ${styles['contact-center']}`}>
-      <p className='sec-label'>Get in touch</p>
-      <h2 className='sec-title'>Let's work together.</h2>
-      <p className='sec-sub'>
+      <p className='sec-label reveal'>Get in touch</p>
+      <h2 className='sec-title reveal d1'>Let's work together.</h2>
+      <p className='sec-sub reveal d2'>
         Open to full-time roles, contracts, and interesting collabs.
         <br />
         If you're building something, reach out.
       </p>
-      <div className={styles['contact-links']}>
+      <div className={`${styles['contact-links']} reveal d3`}>
         {LINKS.map((l) => (
           <a
             key={l.label}
@@ -50,7 +50,7 @@ export default function Contact() {
         ))}
       </div>
       <a
-        className='cta-btn'
+        className='cta-btn reveal d4'
         href="mailto:yiranubari4@gmail.com"
       >
         Send a Message

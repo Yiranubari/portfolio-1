@@ -3,21 +3,31 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 5rem 2.5rem 7rem;
+  padding: 5.5rem 2.5rem 7rem;
 }
 
 .avatar-wrap {
-  width: 100px;
-  height: 100px;
+  width: 188px;
+  height: 188px;
   border-radius: 50%;
-  background: #e0e0e0;
   overflow: hidden;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.8rem;
+  margin-bottom: 2.25rem;
   flex-shrink: 0;
+  position: relative;
+  padding: 5px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+  box-shadow:
+    0 24px 60px -22px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .greeting {
@@ -41,7 +51,7 @@
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   max-width: 460px;
   font-weight: 400;
 }
@@ -51,9 +61,22 @@
   font-weight: 600;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media (max-width: 700px) {
   .home-section {
     padding: 3.5rem 1.25rem 5rem;
+  }
+
+  .avatar-wrap {
+    width: 148px;
+    height: 148px;
   }
 
   .hero-heading {
