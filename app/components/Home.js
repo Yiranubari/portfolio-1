@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Home.module.css";
 import Icon from "./Icon";
 import NowPlaying from "./NowPlaying";
+import Typewriter from "./Typewriter";
+
+const HEADING_LINES = [
+  "Building backends,",
+  "frontends, and",
+  "everything in between.",
+];
 
 export default function Home() {
   const sectionRef = useRef(null);
   const avatarRef = useRef(null);
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -63,7 +71,10 @@ export default function Home() {
   return (
     <div className={styles["home-section"]} ref={sectionRef}>
       <div className={styles["hero-glow"]} aria-hidden="true" />
-      <div className={`${styles["avatar-wrap"]} reveal`}>
+      <div
+        className={`${styles["avatar-wrap"]} ${revealed ? styles["fade-down"] : styles.pre}`}
+        style={revealed ? { animationDelay: "0s" } : undefined}
+      >
         <div className={styles["avatar-inner"]} ref={avatarRef}>
           <Image
             src="/1.jpg"
@@ -75,22 +86,33 @@ export default function Home() {
           />
         </div>
       </div>
-      <p className={`${styles["greeting"]} reveal d1`}>
+      <p
+        className={`${styles["greeting"]} ${revealed ? styles["fade-down"] : styles.pre}`}
+        style={revealed ? { animationDelay: "0.15s" } : undefined}
+      >
         Hi, I'm Yiranubari{" "}
         <Icon
           name="hand-metal"
           size={18}
+          className={revealed ? styles.wave : undefined}
           style={{ verticalAlign: "-3px", marginLeft: "2px" }}
         />
       </p>
-      <h1 className={`${styles["hero-heading"]} reveal d2`}>
-        Building backends,
-        <br />
-        frontends, and
-        <br />
-        things that ship.
+      <h1
+        className={styles["hero-heading"]}
+        aria-label={HEADING_LINES.join(" ")}
+      >
+        <Typewriter
+          lines={HEADING_LINES}
+          caretClassName={styles.caret}
+          caretSolidClassName={styles["caret-solid"]}
+          onDone={() => setRevealed(true)}
+        />
       </h1>
-      <p className={`${styles["hero-sub"]} reveal d3`}>
+      <p
+        className={`${styles["hero-sub"]} ${revealed ? styles["fade-up"] : styles.pre}`}
+        style={revealed ? { animationDelay: "0.45s" } : undefined}
+      >
         a <strong>Full-Stack Developer</strong> and{" "}
         <strong>Software Engineer</strong>
         <br />
@@ -98,7 +120,10 @@ export default function Home() {
         <br />
         and production-grade backend systems.
       </p>
-      <div className={`${styles["hero-actions"]} reveal d4`}>
+      <div
+        className={`${styles["hero-actions"]} ${revealed ? styles["fade-up"] : styles.pre}`}
+        style={revealed ? { animationDelay: "0.6s" } : undefined}
+      >
         <Link href="/contact" className="cta-btn">
           Connect With Me
         </Link>
@@ -112,7 +137,7 @@ export default function Home() {
           Résumé
         </a>
       </div>
-      <NowPlaying />
+      {revealed && <NowPlaying />}
     </div>
   );
 }
