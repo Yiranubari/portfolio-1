@@ -1,23 +1,24 @@
 import React from 'react';
 import styles from "./Works.module.css";
+import Icon from "./Icon";
 
 const WORKS = [
   {
-    icon: '🛒',
+    icon: 'shopping-cart',
     title: 'MyOrderFellow',
     url: 'https://my-order-fellow.vercel.app',
     desc: 'SaaS platform enabling e-commerce businesses to deliver real-time order tracking to customers. Built at ArchSaint Nexus with a PHP backend.',
     tags: ['PHP', 'SaaS', 'Vercel'],
   },
   {
-    icon: '🔊',
+    icon: 'volume-2',
     title: 'Resona',
     url: 'https://resona-weld.vercel.app',
     desc: 'Accessible text-to-speech web app that converts written input into fluid audio output using browser Speech APIs.',
     tags: ['JavaScript', 'Web Speech API', 'Vercel'],
   },
   {
-    icon: '🏃',
+    icon: 'activity',
     title: 'Stride',
     url: 'https://stride-psi-nine.vercel.app',
     desc: 'Responsive workout tracker that logs running and cycling on an interactive map using real-time geolocation and Leaflet.js.',
@@ -37,7 +38,9 @@ export default function Works() {
         {WORKS.map((w) => (
           <div className={styles['work-card']} key={w.title}>
             <div className={styles['work-card-top']}>
-              <div className={styles['work-icon']}>{w.icon}</div>
+              <div className={styles['work-icon']}>
+                <Icon name={w.icon} size={22} />
+              </div>
               <a
                 href={w.url}
                 target="_blank"
@@ -45,7 +48,7 @@ export default function Works() {
                 className={styles['work-link']}
                 aria-label={`Visit ${w.title}`}
               >
-                ↗
+                <Icon name="arrow-up-right" size={16} />
               </a>
             </div>
             <h3>{w.title}</h3>

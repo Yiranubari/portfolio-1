@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./Contact.module.css";
+import Icon from "./Icon";
 
 const LINKS = [
   {
@@ -42,7 +43,9 @@ export default function Contact() {
               <div className={styles['cr-label']}>{l.label}</div>
               <div className={styles['cr-value']}>{l.value}</div>
             </div>
-            <div className={styles['cr-arrow']}>↗</div>
+            <div className={styles['cr-arrow']}>
+              <Icon name="arrow-up-right" size={15} />
+            </div>
           </a>
         ))}
       </div>
