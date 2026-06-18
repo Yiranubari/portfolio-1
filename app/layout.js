@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 import Nav from './components/Nav';
+import CursorGlow from './components/CursorGlow';
 import './global.css';
 import styles from './App.module.css';
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={jakarta.variable}>
         <div className={styles.page}>
+          <CursorGlow />
           <Nav />
           <main>
             {children}

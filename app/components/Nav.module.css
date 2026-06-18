@@ -12,6 +12,36 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.nav-pre {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.nav-show {
+  animation: nav-slide 0.9s var(--ease) forwards;
+}
+
+@keyframes nav-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pre {
+    opacity: 1;
+    transform: none;
+  }
+  .nav-show {
+    animation: none;
+  }
+}
+
 .nav-left {
   display: flex;
   align-items: center;

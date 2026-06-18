@@ -32,14 +32,6 @@ export default function Home() {
       if (frame) return;
       frame = requestAnimationFrame(() => {
         frame = 0;
-        const rect = section.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        section.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
-        section.style.setProperty("--my", `${(y / rect.height) * 100}%`);
-        section.style.setProperty("--glow", "1");
-
         const avatar = avatarRef.current;
         if (avatar) {
           const ar = avatar.getBoundingClientRect();
@@ -54,7 +46,6 @@ export default function Home() {
     };
 
     const onLeave = () => {
-      section.style.setProperty("--glow", "0");
       const avatar = avatarRef.current;
       if (avatar) avatar.style.transform = "";
     };
@@ -70,7 +61,6 @@ export default function Home() {
 
   return (
     <div className={styles["home-section"]} ref={sectionRef}>
-      <div className={styles["hero-glow"]} aria-hidden="true" />
       <div
         className={`${styles["avatar-wrap"]} ${revealed ? styles["fade-down"] : styles.pre}`}
         style={revealed ? { animationDelay: "0s" } : undefined}
@@ -106,7 +96,10 @@ export default function Home() {
           lines={HEADING_LINES}
           caretClassName={styles.caret}
           caretSolidClassName={styles["caret-solid"]}
-          onDone={() => setRevealed(true)}
+          onDone={() => {
+            setRevealed(true);
+            window.dispatchEvent(new Event("hero-revealed"));
+          }}
         />
       </h1>
       <p
