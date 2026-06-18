@@ -26,14 +26,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  background: rgba(12, 12, 15, 0.55);
+  background: var(--row-bg);
   text-decoration: none;
-  color: #fff;
+  color: var(--text);
   transition: background 0.2s var(--ease), padding-left 0.2s var(--ease);
 }
 
 .contact-row:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--row-hover);
   padding-left: 1.75rem;
 }
 
@@ -42,7 +42,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.28);
+  color: var(--text-3);
   margin-bottom: 0.2rem;
 }
 
@@ -55,17 +55,17 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--surface);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-2);
   transition: background 0.2s, color 0.2s;
   flex-shrink: 0;
 }
 
 .contact-row:hover .cr-arrow {
-  background: #fff;
-  color: #000;
+  background: var(--invert-bg);
+  color: var(--invert-fg);
 }

@@ -6,10 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(8, 8, 10, 0.55);
-  -webkit-backdrop-filter: saturate(150%) blur(18px);
-  backdrop-filter: saturate(150%) blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  border-bottom: none;
 }
 
 .nav-pre {
@@ -52,23 +50,29 @@
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text);
   transition: color 0.2s ease;
 }
 
 .nav-left:hover .nav-name {
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2.4rem;
   list-style: none;
 }
 
+.nav-toggle {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   position: relative;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-2);
   font-size: 0.9rem;
   font-weight: 400;
   cursor: pointer;
@@ -83,12 +87,12 @@
   bottom: -2px;
   height: 1.5px;
   width: 0;
-  background: #fff;
+  background: var(--text-strong);
   transition: width 0.28s var(--ease, ease);
 }
 
 .nav-links a:hover {
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .nav-links a:hover::after {
@@ -96,13 +100,13 @@
 }
 
 .nav-links a.active {
-  color: #fff;
+  color: var(--text-strong);
   font-weight: 600;
 }
 
 .nav-links a.active::after {
   width: 100%;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--text-strong);
 }
 
 @media (max-width: 700px) {

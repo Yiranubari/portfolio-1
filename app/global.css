@@ -5,6 +5,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --bg: #050506;
   --glass: rgba(255, 255, 255, 0.035);
   --glass-strong: rgba(255, 255, 255, 0.055);
@@ -15,8 +16,65 @@
   --text: #f2f2f3;
   --text-2: rgba(255, 255, 255, 0.5);
   --text-3: rgba(255, 255, 255, 0.32);
+  --text-strong: #ffffff;
+
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.1);
+  --surface-border: rgba(255, 255, 255, 0.06);
+  --hairline: rgba(255, 255, 255, 0.06);
+  --chip-text: rgba(255, 255, 255, 0.55);
+
+  --invert-bg: #fafafa;
+  --invert-fg: #0a0a0c;
+
+  --shadow-strong: rgba(0, 0, 0, 0.85);
+
+  --nav-bg: rgba(8, 8, 10, 0.55);
+  --nav-border: rgba(255, 255, 255, 0.06);
+
+  --row-bg: rgba(12, 12, 15, 0.55);
+  --row-hover: rgba(255, 255, 255, 0.05);
+
+  --ambient-1: rgba(86, 96, 128, 0.12);
+  --ambient-2: rgba(58, 68, 96, 0.1);
+  --ambient-3: rgba(40, 46, 66, 0.1);
 
   --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f6f8;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(15, 18, 30, 0.1);
+  --glass-border-hover: rgba(15, 18, 30, 0.22);
+
+  --text: #16181d;
+  --text-2: rgba(22, 24, 29, 0.62);
+  --text-3: rgba(22, 24, 29, 0.42);
+  --text-strong: #0a0a0c;
+
+  --surface: rgba(15, 18, 30, 0.05);
+  --surface-strong: rgba(15, 18, 30, 0.09);
+  --surface-border: rgba(15, 18, 30, 0.08);
+  --hairline: rgba(15, 18, 30, 0.1);
+  --chip-text: rgba(22, 24, 29, 0.6);
+
+  --invert-bg: #111114;
+  --invert-fg: #fafafa;
+
+  --shadow-strong: rgba(30, 38, 60, 0.22);
+
+  --nav-bg: rgba(245, 246, 248, 0.7);
+  --nav-border: rgba(15, 18, 30, 0.08);
+
+  --row-bg: rgba(255, 255, 255, 0.72);
+  --row-hover: rgba(15, 18, 30, 0.04);
+
+  --ambient-1: rgba(120, 140, 200, 0.16);
+  --ambient-2: rgba(150, 130, 200, 0.12);
+  --ambient-3: rgba(110, 160, 200, 0.12);
 }
 
 html {
@@ -30,18 +88,19 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
 }
 
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(820px circle at 12% -5%, rgba(86, 96, 128, 0.12), transparent 46%),
-    radial-gradient(680px circle at 102% 18%, rgba(58, 68, 96, 0.10), transparent 42%),
-    radial-gradient(900px circle at 50% 118%, rgba(40, 46, 66, 0.10), transparent 50%);
+    radial-gradient(820px circle at 12% -5%, var(--ambient-1), transparent 46%),
+    radial-gradient(680px circle at 102% 18%, var(--ambient-2), transparent 42%),
+    radial-gradient(900px circle at 50% 118%, var(--ambient-3), transparent 50%);
 }
 
 #root {
@@ -58,8 +117,8 @@ a {
 }
 
 .cta-btn {
-  background: #fafafa;
-  color: #0a0a0c;
+  background: var(--invert-bg);
+  color: var(--invert-fg);
   border: none;
   border-radius: 100px;
   padding: 1rem 2.6rem;

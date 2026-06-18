@@ -10,9 +10,9 @@
 .footer {
   text-align: center;
   padding: 2.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--hairline);
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--text-3);
   font-weight: 400;
   letter-spacing: 0.02em;
 }

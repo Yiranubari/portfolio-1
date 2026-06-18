@@ -1,0 +1,27 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    transform 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.toggle:hover {
+  background: var(--surface-strong);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-1px);
+}
+
+.toggle:active {
+  transform: translateY(0);
+}

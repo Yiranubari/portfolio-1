@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Eye from './Eye';
+import ThemeToggle from './ThemeToggle';
 import styles from "./Nav.module.css";
 
 const NAV_ITEMS = ['Home', 'Works', 'Resume', 'Skills', 'Contact'];
@@ -53,6 +54,9 @@ export default function Nav() {
             </li>
           );
         })}
+        <li className={styles['nav-toggle']}>
+          <ThemeToggle />
+        </li>
       </ul>
     </nav>
   );
