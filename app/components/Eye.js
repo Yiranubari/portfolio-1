@@ -1,26 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useEffect, useRef } from "react";
 import styles from "./Eye.module.css";
 
 export default function Eye() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [shown, setShown] = useState(!isHome);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
-
-  useEffect(() => {
-    if (!isHome) {
-      setShown(true);
-      return;
-    }
-    setShown(false);
-    const onReveal = () => setShown(true);
-    window.addEventListener("hero-revealed", onReveal);
-    return () => window.removeEventListener("hero-revealed", onReveal);
-  }, [isHome]);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -57,10 +42,7 @@ export default function Eye() {
   }, []);
 
   return (
-    <div
-      className={`${styles.eyes} ${shown ? styles.show : styles.pre}`}
-      aria-hidden="true"
-    >
+    <div className={styles.eyes} aria-hidden="true">
       <span className={styles.ball} ref={leftRef}>
         <span className={styles.iris}>
           <span className={styles.pupil} />

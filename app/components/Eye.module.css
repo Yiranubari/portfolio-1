@@ -1,49 +1,9 @@
 .eyes {
-  position: fixed;
-  top: 78px;
-  left: max(1rem, calc(50vw - 590px - 2rem));
-  z-index: 40;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   pointer-events: none;
-}
-
-.pre {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-.show {
-  animation: eyes-in 0.7s var(--ease) forwards;
-}
-
-@keyframes eyes-in {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 700px) {
-  .eyes {
-    top: 64px;
-    left: 1.25rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pre {
-    opacity: 1;
-    transform: none;
-  }
-  .show {
-    animation: none;
-  }
+  flex-shrink: 0;
 }
 
 .ball {

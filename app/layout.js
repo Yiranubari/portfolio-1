@@ -1,7 +1,6 @@
 import localFont from 'next/font/local';
 import Nav from './components/Nav';
 import CursorGlow from './components/CursorGlow';
-import Eye from './components/Eye';
 import './global.css';
 import styles from './App.module.css';
 
@@ -30,7 +29,6 @@ export default function RootLayout({ children }) {
           }}
         />
         <CursorGlow />
-        <Eye />
         <Nav />
         <div className={styles.page}>
           <main>

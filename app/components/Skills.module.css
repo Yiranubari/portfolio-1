@@ -8,10 +8,10 @@
 .stack::before {
   content: '';
   position: absolute;
-  left: 5px;
+  left: 4.5px;
   top: 16px;
   bottom: 14px;
-  width: 2px;
+  width: 3px;
   background: var(--hairline);
 }
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Eye from './Eye';
 import ThemeToggle from './ThemeToggle';
 import styles from "./Nav.module.css";
 
@@ -35,9 +36,12 @@ export default function Nav() {
       className={`${styles['nav']} ${shown ? styles['nav-show'] : styles['nav-pre']}`}
     >
       <div className={styles['nav-inner']}>
-        <Link href="/" className={styles['nav-left']} aria-label="Yiranubari Maamaa, home">
-          <span className={styles['nav-name']}>Yiranubari Maamaa</span>
-        </Link>
+        <div className={styles['nav-brand']}>
+          <Eye />
+          <Link href="/" className={styles['nav-left']} aria-label="Yiranubari Maamaa, home">
+            <span className={styles['nav-name']}>Yiranubari Maamaa</span>
+          </Link>
+        </div>
         <ul className={styles['nav-links']}>
           {NAV_ITEMS.map((item) => {
             const path = PATHMAP[item];
