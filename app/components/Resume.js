@@ -52,14 +52,19 @@ const EDUCATION = [
   },
 ];
 
-function ExpItem({ year, title, company, desc }) {
+function Timeline({ items }) {
   return (
-    <div className={styles['exp-item']}>
-      <div className={styles['exp-year']}>{year}</div>
-      <div className={styles['exp-title']}>{title}</div>
-      {company && <div className={styles['exp-company']}>{company}</div>}
-      {desc && <div className={styles['exp-desc']}>{desc}</div>}
-    </div>
+    <ul className={styles['timeline']}>
+      {items.map((e) => (
+        <li className={styles['item']} key={e.title}>
+          <span className={styles['dot']} aria-hidden="true" />
+          <span className={styles['year']}>{e.year}</span>
+          <h3 className={styles['title']}>{e.title}</h3>
+          {e.company && <p className={styles['company']}>{e.company}</p>}
+          {e.desc && <p className={styles['desc']}>{e.desc}</p>}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -80,19 +85,15 @@ export default function Resume() {
           Download Résumé
         </a>
       </div>
-      <div className={styles['resume-grid']}>
-        <div className={`${styles['exp-block']} reveal d3`}>
-          <div className={styles['exp-block-label']}>Experience</div>
-          {EXPERIENCE.map((e) => (
-            <ExpItem key={e.title} {...e} />
-          ))}
-        </div>
-        <div className={`${styles['exp-block']} reveal d4`}>
-          <div className={styles['exp-block-label']}>Education & Certifications</div>
-          {EDUCATION.map((e) => (
-            <ExpItem key={e.title} {...e} />
-          ))}
-        </div>
+
+      <div className={`${styles['block']} reveal d3`}>
+        <h3 className={styles['block-label']}>Experience</h3>
+        <Timeline items={EXPERIENCE} />
+      </div>
+
+      <div className={`${styles['block']} reveal d4`}>
+        <h3 className={styles['block-label']}>Education &amp; Certifications</h3>
+        <Timeline items={EDUCATION} />
       </div>
     </div>
   );
