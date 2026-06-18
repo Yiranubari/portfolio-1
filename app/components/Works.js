@@ -48,13 +48,13 @@ const WORKS = [
   },
 ];
 
-function CardLink({ href, label }) {
+function WorkLink({ href, label }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={styles['work-clink']}
+      className={styles['clink']}
     >
       {label}
       <Icon name="arrow-up-right" size={13} />
@@ -70,29 +70,34 @@ export default function Works() {
       <p className='sec-sub reveal d2'>
         A selection of projects I've built and shipped: live, real, and in production.
       </p>
-      <div className={styles['works-grid']}>
-        {WORKS.map((w) => (
-          <article className={`${styles['work-card']} reveal`} key={w.title}>
-            <div className={styles['work-card-top']}>
-              <div className={styles['work-icon']}>
-                <Icon name={w.icon} size={22} />
-              </div>
-              <span className={styles['work-year']}>{w.year}</span>
+      <ul className={styles['timeline']}>
+        {WORKS.map((w, i) => (
+          <li
+            className={`${styles['item']} reveal`}
+            key={w.title}
+            style={{ animationDelay: `${0.16 + i * 0.07}s` }}
+          >
+            <span className={styles['dot']} aria-hidden="true" />
+            <span className={styles['year']}>{w.year}</span>
+            <div className={styles['head']}>
+              <span className={styles['icon']}>
+                <Icon name={w.icon} size={17} />
+              </span>
+              <h3>{w.title}</h3>
             </div>
-            <h3>{w.title}</h3>
-            <p>{w.desc}</p>
-            <div className={styles['work-tags']}>
+            <p className={styles['desc']}>{w.desc}</p>
+            <div className={styles['tags']}>
               {w.tags.map((t) => (
-                <span className={styles['wtag']} key={t}>{t}</span>
+                <span className={styles['tag']} key={t}>{t}</span>
               ))}
             </div>
-            <div className={styles['work-links']}>
-              {w.live && <CardLink href={w.live} label="Live" />}
-              {w.code && <CardLink href={w.code} label="Code" />}
+            <div className={styles['links']}>
+              {w.live && <WorkLink href={w.live} label="Live" />}
+              {w.code && <WorkLink href={w.code} label="Code" />}
             </div>
-          </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
