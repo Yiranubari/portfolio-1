@@ -1,6 +1,7 @@
 import localFont from 'next/font/local';
 import Nav from './components/Nav';
 import CursorGlow from './components/CursorGlow';
+import Eye from './components/Eye';
 import './global.css';
 import styles from './App.module.css';
 
@@ -20,17 +21,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
-      <head>
+      <body className={jakarta.variable}>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`,
           }}
         />
-      </head>
-      <body className={jakarta.variable}>
+        <CursorGlow />
+        <Eye />
+        <Nav />
         <div className={styles.page}>
-          <CursorGlow />
-          <Nav />
           <main>
             {children}
           </main>

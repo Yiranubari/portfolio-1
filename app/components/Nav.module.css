@@ -1,13 +1,22 @@
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.1rem 2.5rem;
+  padding: 1.1rem 0;
   position: sticky;
   top: 0;
   z-index: 50;
-  background: transparent;
-  border-bottom: none;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+  backdrop-filter: saturate(150%) blur(18px);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.nav-inner {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-pre {
@@ -111,7 +120,11 @@
 
 @media (max-width: 700px) {
   .nav {
-    padding: 0.9rem 1.25rem;
+    padding: 0.9rem 0;
+  }
+
+  .nav-inner {
+    padding: 0 1.25rem;
     flex-wrap: wrap;
     gap: 0.9rem;
   }
@@ -127,4 +140,5 @@
   .nav-links a {
     font-size: 0.8rem;
   }
+
 }
