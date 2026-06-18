@@ -1,7 +1,7 @@
 .eyes {
   position: fixed;
   top: 78px;
-  left: max(2.5rem, calc(50vw - 590px + 2.5rem));
+  left: max(1rem, calc(50vw - 590px - 2rem));
   z-index: 40;
   display: flex;
   align-items: center;
@@ -93,7 +93,9 @@
 }
 
 @keyframes blink {
-  0%, 92%, 100% {
+  0%,
+  92%,
+  100% {
     transform: scaleY(1);
   }
   95% {

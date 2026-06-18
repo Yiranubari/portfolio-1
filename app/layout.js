@@ -15,12 +15,14 @@ const jakarta = localFont({
 export const metadata = {
   title: 'Yiranubari Promise',
   description: 'Yiranubari Maamaa, Full-Stack Developer',
-
+  other: {
+    google: 'notranslate',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" translate="no" data-theme="dark" suppressHydrationWarning>
       <body className={jakarta.variable}>
         <script
           dangerouslySetInnerHTML={{
