@@ -14,6 +14,7 @@ const HEADING_LINES = [
   "everything in between.",
 ];
 
+
 export default function Home() {
   const sectionRef = useRef(null);
   const avatarRef = useRef(null);
